@@ -1,0 +1,9 @@
+{
+    "name"    : "mana_bot",
+    "version" : "0.0.1",
+    "private" : true,
+    "dependencies": {
+        "coffee-script" : "*",
+        "hubot"        : "*"
+    }
+}
