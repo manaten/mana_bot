@@ -1,5 +1,4 @@
 module.exports = (robot) ->
-
   robot.hear /hello world/, (bot) ->
-    robot.notice bot.message.room, "こんにちは世界!"
-    robot.send bot.message.room, "こんにちは世界!"
+    robot.send bot.envelope, "こんにちは世界!"
+    robot.adapter.notice bot.envelope, "こんにちは世界!"

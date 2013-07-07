@@ -2,10 +2,14 @@
     "name"    : "mana_bot",
     "version" : "0.0.1",
     "private" : true,
-    "dependencies": {
-        "hubot"        : "latest",
-        "hubot-irc": "latest",
 
-        "cron": "latest"
+    "dependencies": {
+        "hubot"     : "2.5.5",
+        "hubot-irc" : "0.1.15",
+
+        "time"      : "*",
+        "cron"      : "1.0.1",
+        "request"   : "2.22.0",
+        "feedparser": "0.16.1"
     }
 }
