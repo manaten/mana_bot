@@ -1,5 +1,5 @@
 # Description:
-#   Send from hatena rss example.
+#   Send from rss.
 #
 # Dependencies:
 #   None
@@ -30,8 +30,8 @@ module.exports = (robot) ->
           .on('end', ->
             lastEntries = {}
             entries.forEach (entry) ->
-              lastEntries[entry.title] = true
-              if robot.brain.data[url] and not robot.brain.data[url][entry.link]
+              lastEntries[entry.link] = true
+              if robot.brain.data[url]? and not robot.brain.data[url][entry.link]?
                 callback entry
 
             robot.brain.data[url] = lastEntries
