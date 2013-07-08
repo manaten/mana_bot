@@ -38,9 +38,8 @@ module.exports = (robot) ->
             robot.brain.save()
           )
 
-  robot.enter ->
-    watchFeed '0 * * * * *', "http://b.hatena.ne.jp/entrylist?sort=hot&threshold=3&mode=rss", (entry) ->
-      console.log entry.title
-      robot.send { room: "#mana_bot" }, "#{entry.title} #{entry.link}"
+  watchFeed '0 * * * * *', "http://b.hatena.ne.jp/entrylist?sort=hot&threshold=3&mode=rss", (entry) ->
+    console.log entry.title
+    robot.send { room: "#mana_bot" }, "#{entry.title} #{entry.link}"
 
 
