@@ -18,9 +18,9 @@ request = require 'request'
 module.exports = (robot) ->
   watchFeed = (cronTime, url, callback) ->
     new cron
-      cronTime: cronTime,
-      start: true,
-      timeZone: "Asia/Tokyo",
+      cronTime: cronTime
+      start: true
+      timeZone: "Asia/Tokyo"
       onTick: ->
         entries = []
         request(url)
