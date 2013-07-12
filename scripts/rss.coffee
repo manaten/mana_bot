@@ -30,8 +30,9 @@ module.exports = (robot) ->
           .on('end', ->
             lastEntries = {}
             entries.forEach (entry) ->
-              lastEntries[entry.link] = true
-              if robot.brain.data[url]? and not robot.brain.data[url][entry.link]?
+              id = entry.link + entry.title
+              lastEntries[id] = true
+              if robot.brain.data[url]? and not robot.brain.data[url][id]?
                 callback entry
 
             robot.brain.data[url] = lastEntries
