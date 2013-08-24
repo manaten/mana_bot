@@ -30,4 +30,4 @@ module.exports = (robot) ->
 
       place = places[Math.floor(Math.random() * places.length)]
       coodinates = place.coordinates.split(',')
-      msg.send "#{place.name} #{GOOGLE_MAP_URL}#{coodinates[1]},#{coodinates[0]}"
+      robot.adapter.notice msg.envelope, "#{place.name} #{GOOGLE_MAP_URL}#{coodinates[1]},#{coodinates[0]}"

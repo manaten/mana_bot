@@ -33,4 +33,4 @@ module.exports = (robot) ->
 
       if items.length
         item = items[Math.floor( Math.random() * items.length )]
-        msg.send "#{item.name} http://tabroom.jp/desk/office-desk/#{item.key}"
+        robot.adapter.notice msg.envelope, "#{item.name} http://tabroom.jp/desk/office-desk/#{item.key}"
