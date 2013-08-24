@@ -6,11 +6,14 @@
     "dependencies": {
         "hubot"     : "2.5.5",
         "hubot-irc" : "0.1.15",
+        "redis"     : "*",
+        "hubot-scripts" : "*",
 
-        "forever"      : "*",
+        "forever"   : "*",
         "time"      : "*",
         "cron"      : "1.0.1",
         "request"   : "2.22.0",
+        "cheerio"   : "*",
         "feedparser": "0.16.1"
     }
 }

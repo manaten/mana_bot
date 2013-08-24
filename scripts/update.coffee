@@ -30,3 +30,10 @@ module.exports = (robot) ->
             robot.adapter.notice bot.envelope, "mana_botは最新です"
     catch e
       robot.adapter.notice bot.envelope, "git pull failed:" + e
+
+module.exports = (robot) ->
+  robot.hear /mana_bot.*restart/, (bot) ->
+    robot.adapter.notice bot.envelope, "再起動します"
+    console.log "mana_bot exit..."
+    process.exit()
+
