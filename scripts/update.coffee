@@ -20,18 +20,19 @@ module.exports = (robot) ->
         if error
           robot.adapter.notice bot.envelope, "git pull failed: " + stderr
         else
-          output = stdout+''
+          output = stdout + ''
           if not /Already up\-to\-date/.test output
             robot.adapter.notice bot.envelope, "mana_botが更新されました: " + output
-            robot.adapter.notice bot.envelope, "再起動します"
-            console.log "mana_bot exit..."
-            process.exit()
+            robot.adapter.notice bot.envelope, "npmの更新をします"
+            child_process.exec 'npm install', (error, stdout, stderr) ->
+              robot.adapter.notice bot.envelope, "再起動します"
+              console.log "mana_bot exit..."
+              process.exit()
           else
             robot.adapter.notice bot.envelope, "mana_botは最新です"
     catch e
       robot.adapter.notice bot.envelope, "git pull failed:" + e
 
-module.exports = (robot) ->
   robot.hear /mana_bot.*restart/, (bot) ->
     robot.adapter.notice bot.envelope, "再起動します"
     console.log "mana_bot exit..."
