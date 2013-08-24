@@ -10,6 +10,7 @@
 # Commands:
 #   None
 
+GOOGLE_MAP_URL = 'https://maps.google.com/?q='
 MESHIMAP_URL = 'https://maps.google.co.jp/maps/ms?authuser=0&vps=2&brcurrent=h3,0x34674e0fd77f192f:0xf54275d47c665244&ie=UTF8&msa=0&output=kml&msid=211440039051153063058.0004e1ac26c79e7959ea9'
 
 request = require 'request'
@@ -29,4 +30,4 @@ module.exports = (robot) ->
 
       place = places[Math.floor(Math.random() * places.length)]
       coodinates = place.coordinates.split(',')
-      msg.send "#{place.name} https://maps.google.com/?q=#{coodinates[1]},#{coodinates[0]}"
+      msg.send "#{place.name} #{GOOGLE_MAP_URL}#{coodinates[1]},#{coodinates[0]}"
