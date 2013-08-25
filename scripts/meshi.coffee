@@ -21,9 +21,8 @@ module.exports = (robot) ->
     request { uri: MESHIMAP_URL }, (error, response, body)->
       $ = cheerio.load(body)
 
-      places = []
-      $("placemark").each ->
-        places.push {
+      places = $("placemark").map ->
+        {
           name:        $(this).find('name').text(),
           coordinates: $(this).find('coordinates').text()
         }
