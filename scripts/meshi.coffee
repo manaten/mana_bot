@@ -19,15 +19,15 @@ cheerio = require 'cheerio'
 module.exports = (robot) ->
   robot.hear /mana_bot.*meshi/, (msg)->
     request { uri: MESHIMAP_URL }, (error, response, body)->
+      # cheerioでCDATAをパースできないらしいので、除去してからパース http://stackoverflow.com/questions/15472213/nodejs-using-cheerio-parsing-xml-returns-empty-cdata
       $ = cheerio.load body.replace(/<!\[CDATA\[([^\]]+)]\]>/ig, "$1")
       places = $("placemark").map ->
         {
           name: $(this).find('name').text(),
-          coordinates: $(this).find('coordinates').text(),
+          coordinates: $(this).find('coordinates').text().split(','),
           description: $(this).find('description').text()
         }
 
       place = places[Math.floor(Math.random() * places.length)]
-      coodinates = place.coordinates.split(',')
-      robot.adapter.notice msg.envelope, "#{place.name} #{GOOGLE_MAP_URL}#{coodinates[1]},#{coodinates[0]}"
+      robot.adapter.notice msg.envelope, "#{place.name} #{GOOGLE_MAP_URL}#{place.coordinates[1]},#{place.coordinates[0]}"
       robot.adapter.notice msg.envelope, "#{place.description}"
