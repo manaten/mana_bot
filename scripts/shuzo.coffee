@@ -57,4 +57,4 @@ module.exports = (robot) ->
     robot.adapter.notice bot.envelope, "#{msg} #{bot.envelope.user.name}"
 
   robot.hear /(だめだ|いやだ|できない|やりたくない|あきらめ|諦め|オワタ|やめよう|死のう|死にたい)/, (bot) ->
-    suzo \x0304"#{bot}\x03"
+    suzo "\x0304#{bot}\x03"
