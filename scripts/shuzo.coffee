@@ -54,7 +54,7 @@ msgs = [
 module.exports = (robot) ->
   suzo = (bot) ->
     msg = msgs[Math.floor(Math.random() * msgs.length)]
-    robot.adapter.notice bot.envelope, "#{msg} #{bot.envelope.user.name}"
+    robot.adapter.notice bot.envelope, "\x0304#{msg}\x03 #{bot.envelope.user.name}"
 
   robot.hear /(だめだ|いやだ|できない|やりたくない|あきらめ|諦め|オワタ|やめよう|死のう|死にたい)/, (bot) ->
-    suzo "\x0304#{bot}\x03"
+    suzo bot
