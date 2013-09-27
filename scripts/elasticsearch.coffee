@@ -12,6 +12,14 @@
 #
 request = require 'request'
 
+url = (->
+  host = process.env.ELASTICSEARCH_HOST or 'localhost'
+  port = process.env.ELASTICSEARCH_PORT or '9200'
+  index = process.env.ELASTICSEARCH_INDEX or 'irc'
+  type = process.env.ELASTICSEARCH_TYPE or 'log'
+  "http://#{host}:#{port}/#{index}/#{type}"
+)()
+
 module.exports = (robot) ->
   robot.hear /.*/, (msg) ->
     if msg.envelope.message.text.match /mana_bot/
@@ -19,7 +27,7 @@ module.exports = (robot) ->
     if msg.envelope.user.name.match /mana_bot/
       return
     request.post
-      uri: 'http://localhost:9200/irc/log'
+      uri: url
       json:
         user    : msg.envelope.user.name
         message : msg.envelope.message.text
@@ -29,7 +37,7 @@ module.exports = (robot) ->
 
   robot.hear /mana_bot.*search (.+)/, (msg) ->
     request
-      uri: 'http://localhost:9200/irc/log/_search'
+      uri: "#{url}/_search"
       json:
         query:
           text:
