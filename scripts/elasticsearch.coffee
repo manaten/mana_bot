@@ -42,6 +42,11 @@ module.exports = (robot) ->
         query:
           text:
             message: msg.match[1]
+        filter:
+          query:
+            match:
+              channel: msg.envelope.room
+
         sort : [
           date :
             order : "desc"
