@@ -13,4 +13,4 @@
 
 module.exports = (robot) ->
   robot.enter (msg) ->
-    robot.bot.send 'MODE', msg.envelope.room, '+o', msg.envelope.user.name
+    robot.send 'MODE', msg.envelope.room, '+o', msg.envelope.user.name
