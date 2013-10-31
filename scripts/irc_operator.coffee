@@ -14,4 +14,4 @@
 module.exports = (robot) ->
   robot.enter (msg) ->
     console.log msg
-    robot.bot.send "/mode #{msg.envelope.room} +o #{msg.envelope.user.name}"
+    robot.bot.send 'mode' "#{msg.envelope.room}" '+o' "#{msg.envelope.user.name}"
