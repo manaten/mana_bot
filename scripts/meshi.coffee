@@ -17,7 +17,7 @@ request = require 'request'
 cheerio = require 'cheerio'
 
 module.exports = (robot) ->
-  robot.hear /mana_bot.*meshi/, (msg)->
+  robot.hear /^(mana_bot.*meshi|めし)$/, (msg)->
     request { uri: MESHIMAP_URL }, (error, response, body)->
       # cheerioでCDATAをパースできないらしいので、除去してからパース http://stackoverflow.com/questions/15472213/nodejs-using-cheerio-parsing-xml-returns-empty-cdata
       $ = cheerio.load body.replace(/<!\[CDATA\[([^\]]+)]\]>/ig, "$1")
