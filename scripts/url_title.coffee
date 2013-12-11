@@ -20,5 +20,5 @@ module.exports = (robot) ->
     request { uri: msg.match[1] }, (error, response, body)->
       return if error
       $ = cheerio.load body.replace(/<!\[CDATA\[([^\]]+)]\]>/ig, "$1")
-      title = $("title").text()
-      robot.adapter.notice msg.envelope, "#{title}"
+      title = $("title")
+      robot.adapter.notice msg.envelope, "#{title.text()}" if title
