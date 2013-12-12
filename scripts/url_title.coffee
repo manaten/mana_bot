@@ -23,8 +23,6 @@ convertEncode = (body) ->
 module.exports = (robot) ->
   robot.hear /(h?ttps?:\/\/[-\w@:%\+.~#?&\/=]+)/i, (msg)->
     uri = msg.match[1]
-    # 社内URLだと事務的に使われていちいち喋られるとうざいので、喋らない(そもそもログイン必要だったりするしね)
-    return if uri.match /(dwango\.co|nicovideo)\.jp/
     request { uri: uri, encoding: null }, (error, response, body)->
       return if error
 
