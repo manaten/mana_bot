@@ -16,12 +16,12 @@ cheerio = require 'cheerio'
 iconv   = require 'iconv'
 
 convertEncode = (body) ->
-  charset = body.toString('ascii').match /<meta[^>]*charset\s*=\s*["']?([\w\-_]+)["']?/i
+  charset = body.toString('ascii').match /<meta[^>]*charset\s*=\s*["']?([-\w]+)["']?/i
   return new iconv.Iconv(charset[1], 'UTF-8//TRANSLIT//IGNORE').convert(body) if charset
   body
 
 module.exports = (robot) ->
-  robot.hear /(h?ttps?:\/\/[-a-zA-Z0-9@:%_\+.~#?&\/=]+)/i, (msg)->
+  robot.hear /(h?ttps?:\/\/[-\w@:%\+.~#?&\/=]+)/i, (msg)->
     uri = msg.match[1]
     # 社内URLだと事務的に使われていちいち喋られるとうざいので、喋らない(そもそもログイン必要だったりするしね)
     return if uri.match /(dwango\.co|nicovideo)\.jp/
