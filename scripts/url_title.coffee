@@ -16,8 +16,8 @@ cheerio = require 'cheerio'
 iconv   = require 'iconv'
 
 convertEncode = (body) ->
-  charset = body.toString('ascii').match /<meta[^>]*[\s;]+charset\s*=\s*["']?([\w\-_]+)["']?/i
-  return new iconv.Iconv(charset[1].trim(), 'UTF-8//TRANSLIT//IGNORE').convert(body) if charset
+  charset = body.toString('ascii').match /<meta[^>]*charset\s*=\s*["']?([\w\-_]+)["']?/i
+  return new iconv.Iconv(charset[1], 'UTF-8//TRANSLIT//IGNORE').convert(body) if charset
   body
 
 module.exports = (robot) ->
