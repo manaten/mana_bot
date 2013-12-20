@@ -28,4 +28,6 @@ module.exports = (robot) ->
 
       $ = cheerio.load convertEncode(body).toString().replace(/<!\[CDATA\[([^\]]+)]\]>/ig, "$1")
       title = $("title")
-      robot.adapter.notice msg.envelope, "#{title.text()}" if title
+      if title
+        titleText = title.text().replace(/^[\s\n]+/, '').replace(/[\s\n]+$/, '')
+        robot.adapter.notice msg.envelope, "#{titleText}"
