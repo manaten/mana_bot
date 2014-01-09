@@ -15,7 +15,9 @@ module.exports = (robot) ->
   robot.enter (msg) ->
     if dengons = robot.brain.data.dengon[msg.envelope.room][msg.envelope.user.name]
       dengons.forEach (dengon)->
-        robot.adapter.notice msg.envelope, "#{dengon.time} <#{dengon.sender}> #{dengon.message}"
+        robot.adapter.notice msg.envelope, "#{new Date(dengon.time}) <#{dengon.sender}> #{dengon.message}"
+      delete robot.brain.data.dengon[msg.envelope.room][msg.envelope.user.name]
+      robot.brain.save()
 
   robot.hear /^伝言 ([^\s]*) (.*)/, (msg)->
     target = msg.match[1]
