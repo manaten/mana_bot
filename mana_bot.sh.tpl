@@ -9,11 +9,11 @@ export HUBOT_IRC_SERVER="manaten.net"
 
 case $1 in
     "start" | "stop" | "restart" )
-       /home/mana/mana_bot/node_modules/forever/bin/forever $1 \
+       `pwd`/node_modules/forever/bin/forever $1 \
            -p /var/run/forever \
            --pidfile /var/run/mana_bot.pid \
            -l /var/log/mana_bot.log -a \
-           -c coffee /home/mana/mana_bot/node_modules/hubot/bin/hubot --adapter irc
+           -c `pwd`/node_modules/coffee-script/bin/coffee `pwd`/node_modules/hubot/bin/hubot --adapter irc
     ;;
     * ) echo "usage: manabot start|stop|retart" ;;
 esac
