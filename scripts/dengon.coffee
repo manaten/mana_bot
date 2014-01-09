@@ -28,7 +28,7 @@ module.exports = (robot) ->
     if dengons = robot.brain.data.dengon[msg.envelope.room][msg.envelope.user.name]
       dengons.forEach (dengon)->
         date = formatDate('m/d H:i', new Date(dengon.time))
-        msg.send "#{date} <#{dengon.sender}> #{dengon.message}"
+        robot.send msg.envelope, "#{date} <#{dengon.sender}> #{dengon.message}"
       delete robot.brain.data.dengon[msg.envelope.room][msg.envelope.user.name]
       robot.brain.save()
 
