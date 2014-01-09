@@ -11,11 +11,23 @@
 # None
 #
 
+formatDate = (d, formatStr)->
+  a = {
+    Y: d.getFullYear,
+    m: ()-> ('0'+(d.getMonth()+1)).slice(-2),
+    d: ()-> ('0'+d.getDate()).slice(-2),
+    H: ()-> ('0'+d.getHours()).slice(-2),
+    i: ()-> ('0'+d.getMinutes()).slice(-2),
+    s: ()-> ('0'+d.getSeconds()).slice(-2)
+  }
+  formatStr.replace /[YmdHis]/g, (l)-> a[l].apply(d)
+
+
 module.exports = (robot) ->
   robot.enter (msg) ->
     if dengons = robot.brain.data.dengon[msg.envelope.room][msg.envelope.user.name]
       dengons.forEach (dengon)->
-        robot.adapter.notice msg.envelope, "#{new Date(dengon.time)} <#{dengon.sender}> #{dengon.message}"
+        robot.adapter.notice msg.envelope, "#{formatDate('m/d H:i', new Date(dengon.time))} <#{dengon.sender}> #{dengon.message}"
       delete robot.brain.data.dengon[msg.envelope.room][msg.envelope.user.name]
       robot.brain.save()
 
