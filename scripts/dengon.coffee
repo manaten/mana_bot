@@ -26,7 +26,6 @@ formatDate = (d, formatStr)->
 module.exports = (robot) ->
   robot.enter (msg) ->
     for targetUser, dengons of robot.brain.data.dengon[msg.envelope.room]
-      console.log targetUser
       if new RegExp("#{targetUser}?[\d_]*").test msg.envelope.user.name
         msg.send "#{formatDate new Date(dengon.time), 'm/d H:i'} <#{dengon.sender}> #{dengon.message} #{msg.envelope.user.name}" for dengon in dengons
         delete robot.brain.data.dengon[msg.envelope.room][targetUser]
