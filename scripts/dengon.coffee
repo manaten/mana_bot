@@ -29,7 +29,7 @@ module.exports = (robot) ->
       if new RegExp("#{targetUser}?[\d_]*").test msg.envelope.user.name
         msg.send "#{formatDate new Date(dengon.time), 'm/d H:i'} <#{dengon.sender}> #{dengon.message} #{msg.envelope.user.name}" for dengon in dengons
         delete robot.brain.data.dengon[msg.envelope.room][targetUser]
-    robot.brain.save()
+        robot.brain.save()
 
   robot.hear /^伝言 ([^\s]*) (.*)/, (msg)->
     target = msg.match[1]
