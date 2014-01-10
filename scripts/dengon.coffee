@@ -25,12 +25,11 @@ formatDate = (d, formatStr)->
 
 module.exports = (robot) ->
   robot.enter (msg) ->
-    if dengons = robot.brain.data.dengon[msg.envelope.room][msg.envelope.user.name]
-      dengons.forEach (dengon)->
-        date = formatDate new Date(dengon.time), 'm/d H:i'
-        msg.send "#{date} <#{dengon.sender}> #{dengon.message} #{msg.envelope.user.name}"
-      delete robot.brain.data.dengon[msg.envelope.room][msg.envelope.user.name]
-      robot.brain.save()
+    for targetUser, dengons of robot.brain.data.dengon[msg.envelope.room]
+      if msg.envelope.user.name.match new Regexp('#{targetUser}[\d_]*')
+        msg.send "#{formatDate new Date(dengon.time), 'm/d H:i'} <#{dengon.sender}> #{dengon.message} #{msg.envelope.user.name}" for dengon in dengons
+        delete robot.brain.data.dengon[msg.envelope.room][targetUser]
+    robot.brain.save()
 
   robot.hear /^伝言 ([^\s]*) (.*)/, (msg)->
     target = msg.match[1]
@@ -45,3 +44,4 @@ module.exports = (robot) ->
       time:    new Date().getTime()
     }
     robot.brain.save()
+    robot.adapter.notice msg.envelope, '伝言を受け付けました #{msg.envelope.user.name}'
