@@ -12,9 +12,5 @@
 #
 
 module.exports = (robot) ->
-  log = (nick, to, text, message)->
-    # TODO ファイルに出力するように
-    console.log nick, to, text, message
-  robot.adapter.bot.on 'message', log
-  robot.adapter.bot.on 'notice', log
-
+  robot.adapter.bot.on 'raw', (message)->
+    console.log JSON.stringify message
