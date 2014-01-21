@@ -13,4 +13,6 @@
 
 module.exports = (robot) ->
   robot.adapter.bot.on 'raw', (message)->
-    console.log JSON.stringify message
+    switch message.rawCommand
+      when 'NOTICE', 'PRIVMSG', 'PART', 'JOIN', 'TOPIC'
+        console.log JSON.stringify message
