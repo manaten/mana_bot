@@ -11,6 +11,7 @@
 #   None
 #
 fs = require 'fs'
+LOG_ROOT = '/var/log/mana_bot'
 
 module.exports = (robot) ->
   robot.adapter.bot.on 'raw', (message)->
@@ -28,7 +29,7 @@ module.exports = (robot) ->
           time: time,
           nick: message.nick
         }
-        dir = "#{channel}/#{year}/#{month}"
+        dir = "#{LOG_ROOT}/#{channel}/#{year}/#{month}"
         fs.exists(dir, (exists)->
           if exists
             fs.appendFile "#{dir}/#{date}", logContent, (err)->
