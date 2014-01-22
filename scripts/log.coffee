@@ -11,6 +11,7 @@
 #   None
 #
 fs = require 'fs'
+mkdirp = require 'mkdirp'
 LOG_ROOT = '/var/log/mana_bot'
 
 module.exports = (robot) ->
@@ -35,7 +36,7 @@ module.exports = (robot) ->
             fs.appendFile "#{dir}/#{date}", logContent, (err)->
               console.log err
           else
-            fs.mkdir dir, ->
+            mkdirp dir, ->
               fs.appendFile "#{dir}/#{date}", logContent, (err)->
                 console.log err
         )
