@@ -24,12 +24,12 @@ module.exports = (robot) ->
         month = time.getMonth()+1
         date = time.getDate()
         
-        logContent = JSON.stringify {
+        logContent = (JSON.stringify {
           command: message.rawCommand,
           args: message.args,
           time: time,
           nick: message.nick
-        } + ",\n"
+        }) + ",\n"
         dir = "#{LOG_ROOT}/#{channel}/#{year}/#{month}"
         
         log = ()->
