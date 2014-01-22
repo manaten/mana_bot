@@ -16,6 +16,8 @@
         "cheerio"   : "*",
         "iconv"     : "*",
         "redis"     : "*",
+        
+        "mkdirp"   : "*",
 
         "node-promise": "*"
     }
