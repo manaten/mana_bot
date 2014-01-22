@@ -16,10 +16,10 @@ module.exports = (robot) ->
   robot.adapter.bot.on 'raw', (message)->
     switch message.rawCommand
       when 'NOTICE', 'PRIVMSG', 'PART', 'JOIN', 'TOPIC'
-        channel = message.args[0]
+        channel = message.args[0].replace /^#/, ''
         time = new Date
         year = time.getFullYear()
-        month = time.getMonth()
+        month = time.getMonth()+1
         date = time.getDate()
         
         logContent = JSON.stringify {
