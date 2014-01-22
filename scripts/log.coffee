@@ -29,15 +29,16 @@ module.exports = (robot) ->
           args: message.args,
           time: time,
           nick: message.nick
-        }
+        } + ",\n"
         dir = "#{LOG_ROOT}/#{channel}/#{year}/#{month}"
+        log = ()->
+          fs.appendFile "#{dir}/#{date}", logContent, (err)->
+            console.log err
         fs.exists(dir, (exists)->
           if exists
-            fs.appendFile "#{dir}/#{date}", logContent, (err)->
-              console.log err
+            log
           else
             mkdirp dir, ->
-              fs.appendFile "#{dir}/#{date}", logContent, (err)->
-                console.log err
+              log
         )
         
