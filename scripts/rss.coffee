@@ -42,4 +42,8 @@ module.exports = (robot) ->
     console.log entry.title
     robot.send { room: "#mana_bot" }, "#{entry.title} #{entry.link}"
 
+  watchFeed '0 * * * * *', "https://bitbucket.org/dwarecgre/veles_web/rss?token=ff51e11ca832d0631a5117d69c06bd3b", (entry) ->
+    console.log entry.title
+    robot.send { room: "#ハッカソン" }, "#{entry.title} #{entry.link}"
+
 
