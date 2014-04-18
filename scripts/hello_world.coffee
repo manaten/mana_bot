@@ -25,6 +25,15 @@ module.exports = (robot) ->
       robot.adapter.notice bot.envelope, "ﾊﾊﾊ…"
     , 2000
 
+  robot.hear /ごっちゃん/, (bot) ->
+    robot.adapter.notice bot.envelope, "ﾄﾞﾝ､"
+    setTimeout ->
+      robot.adapter.notice bot.envelope, "ﾄﾞｺ､"
+    , 1000
+    setTimeout ->
+      robot.adapter.notice bot.envelope, "ﾄﾞﾝ…"
+    , 2000
+
   robot.hear /ごっつ/, (bot) ->
     robot.adapter.notice bot.envelope, "ﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺ…"
 
