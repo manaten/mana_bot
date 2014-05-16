@@ -12,6 +12,5 @@
 #
 
 module.exports = (robot) ->
-  robot.hear /urldecode\s+(.*)/, (msg) ->
-    input = msg.match[1]
-    robot.adapter.notice msg.envelope, decodeURIComponent(input)
+  robot.hear /^.*(%[0-9A-F]{2}){2,}.*$/, (msg) ->
+    robot.adapter.notice msg.envelope, decodeURIComponent(msg.match[0])
