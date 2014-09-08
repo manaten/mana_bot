@@ -34,8 +34,8 @@ module.exports = (robot) ->
       robot.adapter.notice bot.envelope, "ﾄﾞﾝ…"
     , 2000
 
-  robot.hear /ごっつ/, (bot) ->
-    robot.adapter.notice bot.envelope, "ﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺ…"
+  #robot.hear /ごっつ/, (bot) ->
+    #robot.adapter.notice bot.envelope, "ﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺ…"
 
   robot.hear /(かっ|カッ)(つ|ツ)/, (bot) ->
     robot.adapter.notice bot.envelope, "ﾊｯﾊﾊﾊｯﾊﾊﾊｯﾊﾊ…"
