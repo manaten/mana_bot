@@ -14,7 +14,7 @@ request = require 'request'
 cheerio = require 'cheerio'
 
 module.exports = (robot) ->
-  robot.hear /^cheerio ([^\s]*) (.*)/, (msg)->
+  robot.respond /cheerio ([^\s]*) (.*)/, (msg)->
     url = msg.match[1]
     script = msg.match[2]
 
