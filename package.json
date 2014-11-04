@@ -1,24 +1,21 @@
 {
-    "name"    : "mana_bot",
-    "version" : "0.0.10",
-    "private" : true,
-
-    "dependencies": {
-        "hubot"     : "2.5.5",
-        "hubot-irc" : "0.1.15",
-		"coffee-script"    : "*",
-
-        "forever"   : "*",
-        "time"      : "*",
-        "cron"      : "1.0.1",
-        "request"   : "2.22.0",
-        "feedparser": "0.16.1",
-        "cheerio"   : "*",
-        "iconv"     : "*",
-        "redis"     : "*",
-        
-        "mkdirp"   : "*",
-
-        "node-promise": "*"
-    }
+  "name": "mana_bot",
+  "version": "0.0.10",
+  "private": true,
+  "dependencies": {
+    "hubot": "2.5.5",
+    "hubot-irc": "0.1.15",
+    "coffee-script": "*",
+    "forever": "*",
+    "time": "*",
+    "cron": "1.0.1",
+    "request": "2.22.0",
+    "feedparser": "0.16.1",
+    "cheerio": "*",
+    "iconv": "*",
+    "redis": "*",
+    "mkdirp": "*",
+    "node-promise": "*",
+    "hubot-scripts": "~2.5.16"
+  }
 }
