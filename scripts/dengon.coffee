@@ -45,4 +45,4 @@ module.exports = (robot) ->
       time:    new Date().getTime()
     }
     robot.brain.save()
-    robot.adapter.notice msg.envelope, "伝言を受け付けました #{msg.envelope.user.name}"
+    msg.send "伝言を受け付けました #{msg.envelope.user.name}"

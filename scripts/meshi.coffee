@@ -29,5 +29,5 @@ module.exports = (robot) ->
         }
 
       place = places[Math.floor(Math.random() * places.length)]
-      robot.adapter.notice msg.envelope, "#{place.name} #{GOOGLE_MAP_URL}#{place.coordinates[1]},#{place.coordinates[0]}"
-      robot.adapter.notice msg.envelope, "#{place.description}"
+      msg.send "#{place.name} #{GOOGLE_MAP_URL}#{place.coordinates[1]},#{place.coordinates[0]}"
+      msg.send "#{place.description}"

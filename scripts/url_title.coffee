@@ -30,4 +30,4 @@ module.exports = (robot) ->
       title = $("title")
       if title
         titleText = title.text().replace(/^[\s\n]+/, '').replace(/[\s\n]+$/, '')
-        robot.adapter.notice msg.envelope, "#{titleText}"
+        msg.send "#{titleText}"

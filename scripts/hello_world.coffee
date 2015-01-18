@@ -12,33 +12,32 @@
 #
 
 module.exports = (robot) ->
-  robot.hear /hello world/, (bot) ->
-    robot.send bot.envelope, "こんにちは世界!"
-    robot.adapter.notice bot.envelope, "こんにちは世界!"
+  robot.hear /hello world/, (msg) ->
+    msg.send "こんにちは世界!"
 
-  robot.hear /(かっ|カッ)ちゃん/, (bot) ->
-    robot.adapter.notice bot.envelope, "ﾊﾊ､"
+  robot.hear /(かっ|カッ)ちゃん/, (msg) ->
+    msg.send "ﾊﾊ､"
     setTimeout ->
-      robot.adapter.notice bot.envelope, "ﾊﾊﾊ､"
+      msg.send "ﾊﾊﾊ､"
     , 1000
     setTimeout ->
-      robot.adapter.notice bot.envelope, "ﾊﾊﾊ…"
+      msg.send "ﾊﾊﾊ…"
     , 2000
 
-  robot.hear /ごっちゃん/, (bot) ->
-    robot.adapter.notice bot.envelope, "ﾄﾞﾝ､"
+  robot.hear /ごっちゃん/, (msg) ->
+    msg.send "ﾄﾞﾝ､"
     setTimeout ->
-      robot.adapter.notice bot.envelope, "ﾄﾞｺ､"
+      msg.send "ﾄﾞｺ､"
     , 1000
     setTimeout ->
-      robot.adapter.notice bot.envelope, "ﾄﾞﾝ…"
+      msg.send "ﾄﾞﾝ…"
     , 2000
 
   #robot.hear /ごっつ/, (bot) ->
-    #robot.adapter.notice bot.envelope, "ﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺ…"
+    #msg.send "ﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺﾄﾞﾝﾄﾞｺ…"
 
-  robot.hear /(かっ|カッ)(つ|ツ)/, (bot) ->
-    robot.adapter.notice bot.envelope, "ﾊｯﾊﾊﾊｯﾊﾊﾊｯﾊﾊ…"
+  robot.hear /(かっ|カッ)(つ|ツ)/, (msg) ->
+    msg.send "ﾊｯﾊﾊﾊｯﾊﾊﾊｯﾊﾊ…"
 
-  robot.hear /^(gm|ｇｍ)/, (bot) ->
-    robot.adapter.notice bot.envelope, "gm"
+  robot.hear /^(gm|ｇｍ)/, (msg) ->
+    msg.send "gm"
