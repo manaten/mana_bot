@@ -3,19 +3,20 @@
   "version": "0.0.10",
   "private": true,
   "dependencies": {
+    "cheerio": "*",
+    "coffee-script": "*",
+    "cron": "1.0.1",
+    "feedparser": "0.16.1",
+    "forever": "*",
     "hubot": "2.5.5",
     "hubot-irc": "0.1.15",
-    "coffee-script": "*",
-    "forever": "*",
-    "time": "*",
-    "cron": "1.0.1",
-    "request": "2.22.0",
-    "feedparser": "0.16.1",
-    "cheerio": "*",
+    "hubot-scripts": "~2.5.16",
+    "hubot-slack": "^3.2.1",
     "iconv": "*",
-    "redis": "*",
     "mkdirp": "*",
     "node-promise": "*",
-    "hubot-scripts": "~2.5.16"
+    "redis": "*",
+    "request": "2.22.0",
+    "time": "*"
   }
 }
