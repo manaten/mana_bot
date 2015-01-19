@@ -19,9 +19,7 @@ module.exports = (robot) ->
     profile = getProfile userName
     return unless profile?
 
-    msg.send "> #{profile.real_name}"
-    msg.send "> email: #{profile.email}"
-    msg.send "> title: #{profile.title}"
+    msg.send "> #{profile.real_name}\n> email: #{profile.email}\n> title: #{profile.title}"
 
   robot.hear /^whoami/, (msg)-> sendProfile msg, msg.envelope.user.name
   robot.hear /^whois (.+)/, (msg)-> sendProfile msg, msg.match[1]
