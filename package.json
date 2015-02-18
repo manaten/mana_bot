@@ -10,6 +10,8 @@
     "forever": "*",
     "hubot": "2.5.5",
     "hubot-irc": "0.1.15",
+    "hubot-google-images": "^0.1.3",
+    "hubot-help": "^0.1.1",
     "hubot-scripts": "~2.5.16",
     "hubot-slack": "^3.2.1",
     "iconv": "*",
