@@ -30,4 +30,5 @@ module.exports = (robot) ->
       title = $("title")
       if title
         titleText = title.text().replace(/^[\s\n]+/, '').replace(/[\s\n]+$/, '')
-        msg.send "> #{titleText}"
+        # slackでは不要のためコメントアウト。
+        # msg.send "> #{titleText}"
