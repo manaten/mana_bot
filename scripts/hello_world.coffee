@@ -12,6 +12,8 @@
 #
 
 module.exports = (robot) ->
+  console.log 'loading hello.coffee ' + Date.now()
+
   robot.hear /hello world/, (msg) ->
     msg.send "こんにちは世界!"
 
