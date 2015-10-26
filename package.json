@@ -13,7 +13,7 @@
     "hubot-google-images": "^0.1.3",
     "hubot-help": "^0.1.1",
     "hubot-scripts": "~2.5.16",
-    "hubot-slack": "^3.2.1",
+    "hubot-slack": "3.3.0",
     "iconv": "*",
     "mkdirp": "*",
     "node-promise": "*",
