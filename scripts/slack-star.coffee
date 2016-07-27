@@ -11,6 +11,7 @@
 # Commands:
 #
 
+# hubot-slack4系で動かない
 module.exports = (robot) ->
   robot.on 'Slack:star_added', (message) ->
     stareeUser = (robot.adapter.client.getUserByID message.user).name.replace /(.)$/, '.$1'

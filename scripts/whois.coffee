@@ -11,6 +11,7 @@
 #   None
 #
 
+# hubot-slack4系で動かない
 module.exports = (robot) ->
   getProfile = (userName) ->
     robot.adapter.client.getUserByName(userName).profile
