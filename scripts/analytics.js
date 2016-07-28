@@ -122,7 +122,7 @@ module.exports = robot => {
     cronTime: '00 00 11 * * *',
     start   : true,
     timeZone: "Asia/Tokyo",
-    onTick  : () => report('manaten')
+    onTick  : () => report('G03D336T0')
   });
 
   // 毎月1日の11時に月次レポート
@@ -130,7 +130,7 @@ module.exports = robot => {
     cronTime: '00 00 11 1 * *',
     start   : true,
     timeZone: "Asia/Tokyo",
-    onTick  : () => report('manaten', 'month')
+    onTick  : () => report('G03D336T0', 'month')
   });
 
   robot.respond(/analytics:month/, res => {
