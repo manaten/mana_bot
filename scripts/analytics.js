@@ -10,10 +10,10 @@
  * Commands:
 */
 
-import _ from 'lodash';
-import google from 'googleapis';
-import {CronJob as cron} from 'cron';
-import moment from 'moment';
+const _ = require('lodash');
+const google = require('googleapis');
+const {CronJob} = require('cron');
+const moment = require('moment');
 
 const OAuth2 = google.auth.OAuth2;
 
@@ -118,7 +118,7 @@ module.exports = robot => {
   };
 
   // 毎日11時に日次レポート
-  new cron({
+  new CronJob({
     cronTime: '00 00 11 * * *',
     start   : true,
     timeZone: "Asia/Tokyo",
@@ -126,7 +126,7 @@ module.exports = robot => {
   });
 
   // 毎月1日の11時に月次レポート
-  new cron({
+  new CronJob({
     cronTime: '00 00 11 1 * *',
     start   : true,
     timeZone: "Asia/Tokyo",

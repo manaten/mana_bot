@@ -5,6 +5,9 @@
   "engines": {
     "node": ">= 8"
   },
+  "scripts": {
+    "start": "forever -c 'node ./node_modules/.bin/coffee' ./node_modules/.bin/hubot -a slack"
+  },
   "dependencies": {
     "babel-core": "6.11.4",
     "babel-hubot": "0.2.0",
