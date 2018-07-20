@@ -11,7 +11,7 @@
 #   dm username message
 
 
-# hubot-slack4系で動かない
+# TODO hubot-slack4系で動かない
 module.exports = (robot) ->
   sendDM = (slackUserName , message) ->
     userId = robot.adapter.client.getUserByName(slackUserName)?.id

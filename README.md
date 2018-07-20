@@ -1,17 +1,8 @@
 mana_bot
 =======
 
-## install
+## Run
 ```sh
 npm install
-mv mana_bot.sh.tpl mana_bot.sh
-vim mana_bot.sh
+npm start
 ```
-
-### auto start
-```sh
-# vim /etc/rc.local
-cd /home/mana_bot/mana_bot && su -c './mana_bot start' mana_bot
-```
-
-
